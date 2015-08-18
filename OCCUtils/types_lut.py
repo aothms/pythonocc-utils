@@ -160,14 +160,14 @@ geom_lut = EnumLookup(_geom_types_a, _geom_types_b)
 classes = dir()
 geom_classes = []
 for elem in classes:
-    if (elem.startswith('Geom') and not 'swig' in elem):
+    if elem.startswith('Geom') and not 'swig' in elem:
         geom_classes.append(elem)
 
 
 def what_is_face(face):
     ''' Returns all class names for which this class can be downcasted
     '''
-    if not face.ShapeType()==TopAbs_FACE:
+    if not face.ShapeType() == TopAbs_FACE:
         print '%s is not a TopAbs_FACE. Conversion impossible'
         return None
     hs = BRep_Tool_Surface(face)
